@@ -38,14 +38,27 @@ class Formulario extends React.Component {
                     />
                 </div>
 
-                <Input                    
-                    identificador = "salvar"
-                    nome = "salvar"
-                    tipo = "submit"
-                    valor = "Adicionar tarefa"
-                    obrigatorio = {false}
-                    classe = "botao"
-                />
+                <div>
+
+                    <Input                    
+                        identificador = "salvar"
+                        nome = "salvar"
+                        tipo = "submit"
+                        valor = "Adicionar tarefa"
+                        obrigatorio = {false}
+                        classe = "botao"
+                    />
+
+                    <Input                    
+                        identificador = "limpar"
+                        nome = "limpar"
+                        tipo = "reset"
+                        valor = "Limpar"
+                        obrigatorio = {false}
+                        classe = "btn_limpar"
+                    />
+
+                </div>
 
             </form>
         )
