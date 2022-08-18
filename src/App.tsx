@@ -12,10 +12,8 @@ function App() {
   const [itens, setItens] = useState<Iitem[]>([]);
 
   const [selecionado, setSelecionado] = useState<Iitem>();
-  const [completo, setCompleto] = useState<Iitem>();
-
+  
   function selectItem(itemSelecionado: Iitem){
-    console.log(itemSelecionado);
     setSelecionado(itemSelecionado);
     setItens(itensAnteriores => itensAnteriores.map(
         item => ({
@@ -27,8 +25,25 @@ function App() {
     )
   }
 
-  function defineItemCompleto(itemCompleto: Iitem){
-    setCompleto(itemCompleto);
+  function defineItemCompleto(){
+    if(selecionado){
+      setSelecionado(undefined);
+
+      setItens(itensAnteriores => itensAnteriores.map(item => {
+            if(item.id === selecionado.id){
+              return{
+                ...item,
+                selecionado : false,
+                completo: true
+              }
+            }else{
+              return item;
+            }        
+          }
+        )
+      )
+    }
+
   }
 
   return (
@@ -39,12 +54,13 @@ function App() {
       />
 
       <Lista
-        itens = {itens}
+        itens={itens}
         selecionaTarefa={selectItem}
       />
         
       <Cronometro
-        item = {selecionado}
+        item={selecionado}
+        callback={defineItemCompleto}
       />
 
     </div>

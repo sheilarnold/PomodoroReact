@@ -81,7 +81,8 @@ class Formulario extends React.Component<{
                         tipo = "time"
                         obrigatorio = {true}
                         valor = {this.state.tempo}
-                        minimo = "00:25:00"
+                        //minimo = "00:25:00"
+                        minimo = "00:00:01"
                         maximo = "00:30:00"
                         classe="input_form"
                         callback={this.altera_tempo}

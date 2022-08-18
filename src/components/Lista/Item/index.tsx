@@ -5,19 +5,21 @@ function Item ({id, nome, tempo, selecionado, completo, selecionaTarefa,}: Props
 
     return(
         <li
-            className={selecionado?"itemSelecionado":""}
+            className={selecionado ? "itemSelecionado" : "" || completo ? "itemCompletado" : ""}
             onClick={() => 
-                selecionaTarefa({
-                    id,
-                    nome,
-                    tempo,
-                    selecionado,
-                    completo
-                })
+                !completo && 
+                    selecionaTarefa({
+                        id,
+                        nome,
+                        tempo,
+                        selecionado,
+                        completo
+                    })
             }
         >
             <h3>{nome}:</h3>
             <span>{tempo}</span>
+            {completo && <span className="concluido" aria-label="itemCompletado"></span>}
         </li>
     )
 

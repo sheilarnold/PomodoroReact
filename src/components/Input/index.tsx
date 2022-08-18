@@ -12,7 +12,8 @@ class Input extends React.Component<
         minimo?: string,
         maximo?: string,
         classe?: string,
-        callback?: Function
+        callback?: Function,
+        callback_onClick?: () => void
     }
 > {
     
@@ -30,6 +31,7 @@ class Input extends React.Component<
                 max={this.props.maximo}
                 className={this.props.classe}
                 onChange={(valor) => this.props.callback?this.props.callback(valor.target.value):null}
+                onClick={this.props.callback_onClick}
             />
         )
     }
