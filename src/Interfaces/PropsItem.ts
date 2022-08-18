@@ -1,5 +1,5 @@
 import Iitem from "./Iitem";
 
-export default interface Props extends Iitem {
+export default interface PropsItem extends Iitem {
     selecionaTarefa: (tarefaSelecionada: Iitem) => void
 }

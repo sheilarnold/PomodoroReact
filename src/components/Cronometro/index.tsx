@@ -1,13 +1,36 @@
+import { useEffect, useState } from "react";
+import Iitem from "../../Interfaces/Iitem";
+import TempoParaSegundos from "../../utils/Time";
 import Input from "../Input";
 import Relogio from "./Relogio";
 
 import "./style.scss";
 
-function Cronometro(props:any){
+interface Props {
+    item: Iitem | undefined
+}
+
+function Cronometro({item} : Props){
+
+    const [tempo, setTempo] = useState<Number>();
+
+    useEffect(() => {
+        setTempo(TempoParaSegundos(item?.tempo??"00:00:00"));
+    }, [item?.tempo])
+
     return(
         <div className="cronometro">
+
+        <div>
             
-            <p className="titulo">Escolha uma {props.titulo} e inicie o cronômetro</p>
+            Tempo: {tempo?.toString()}
+            
+        </div>
+            
+            <p className="titulo">
+                Escolha um objetivo e inicie o cronômetro
+            </p>
+
             
             <div className="relogioWrapper">
                 <Relogio />

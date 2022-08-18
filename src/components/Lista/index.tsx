@@ -11,7 +11,7 @@ function Lista ({itens, selecionaTarefa}: Props) {
         <aside>
            
             <h2>
-                Minhas tarefas/atividades
+                Meus objetivos de estudo
             </h2>
 
             <ul>

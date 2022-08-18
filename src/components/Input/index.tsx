@@ -29,7 +29,7 @@ class Input extends React.Component<
                 min={this.props.minimo}
                 max={this.props.maximo}
                 className={this.props.classe}
-                onChange={(valor) => this.props.callback? this.props.callback(valor.target.value):null}
+                onChange={(valor) => this.props.callback?this.props.callback(valor.target.value):null}
             />
         )
     }

@@ -44,7 +44,7 @@ function App() {
       />
         
       <Cronometro
-        titulo = "tarefa/atividade"
+        item = {selecionado}
       />
 
     </div>
