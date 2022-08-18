@@ -2,9 +2,9 @@
     display: grid;
     grid-template-rows: min-content min-content auto;
     grid-template-areas: 
-    "nova-tarefa"
+    "novo-item"
     "cronometro"
-    "tarefas"
+    "itens"
     ;
     row-gap: 24px;
     min-width: 320px;
@@ -17,8 +17,8 @@
   
     @media screen and (min-width:1280px)  {
       grid-template-areas: 
-      "nova-tarefa tarefas"
-      "cronometro tarefas"
+      "novo-item itens"
+      "cronometro itens"
       ;
       column-gap: 64px;
       grid-template-rows: min-content min-content;

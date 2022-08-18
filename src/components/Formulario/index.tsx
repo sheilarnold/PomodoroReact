@@ -52,8 +52,10 @@ class Formulario extends React.Component<{
 
     render(){
         return (
-            <form  onSubmit={this.adicionar_item.bind(this)}>
+            <form className="formulario" onSubmit={this.adicionar_item.bind(this)}>
+
                 <div className="inputContainer">
+
                     <Label
                         titulo = "Atividade"
                         lblfor = "item"
@@ -68,8 +70,10 @@ class Formulario extends React.Component<{
                         classe="input_form"
                         callback={this.define_item}
                     />
+
                 </div>
                 <div className="inputContainer">
+
                     <Label
                         titulo = "Tempo"
                         lblfor = "tempo"
@@ -87,6 +91,7 @@ class Formulario extends React.Component<{
                         classe="input_form"
                         callback={this.altera_tempo}
                     />
+                    
                 </div>
 
                 <div>
