@@ -1,28 +1,30 @@
-import React from "react";
+import Props from "../../Interfaces/Props";
 import Item from "./Item";
 
 import "./style.scss";
 
-function Lista (props:any) {
+function Lista ({itens, selecionaTarefa}: Props) {
 
-    function create_item(){
-
-    }
+    //const [itens, setItens] = useState(props.itens);
 
     return(
         <aside>
            
             <h2>
-                {props.titulo}
+                Minhas tarefas/atividades
             </h2>
 
             <ul>
 
-                <Item
-                    id = "item1"
-                    nome = "React"
-                    tempo = "00:30:00"
-                />
+                {
+                    itens.map((item) => (                        
+                        <Item
+                            selecionaTarefa={selecionaTarefa}
+                            key = {item.id}
+                            {...item}
+                        />
+                    ))
+                }
 
             </ul>
 

@@ -1,25 +1,72 @@
 import React from "react";
-import Botao from "../Botao";
+import {v4 as idV4} from "uuid";
+
+import Iitem from "../../Interfaces/Iitem";
 import Input from "../Input";
 import Label from "../Label";
 
 import "./style.scss";
 
-class Formulario extends React.Component {
+class Formulario extends React.Component<{
+    callback: React.Dispatch<React.SetStateAction<Iitem[]>>
+}> {
+
+    state = {
+        nome: "",
+        tempo: "00:00"
+    };
+
+    altera_tempo = (tmp: any) => {
+        this.setState({
+            ...this.state,
+            tempo: tmp
+        })
+    }
+
+    define_item = (itn: any) => {
+        this.setState({
+            ...this.state,
+            nome: itn
+        })
+    }
+
+    adicionar_item(evento: React.FormEvent){
+        evento.preventDefault();
+        this.props.callback(itensaAntigos => 
+            [
+                ...itensaAntigos, 
+                {
+                    ...this.state,
+                    selecionado: false,
+                    completo: false,
+                    id: idV4()
+                }
+            ]
+        );
+
+        this.setState({
+            nome: "",
+            tempo: "00:00"
+        });
+    }
+
     render(){
         return (
-            <form>
+            <form  onSubmit={this.adicionar_item.bind(this)}>
                 <div className="inputContainer">
                     <Label
                         titulo = "Atividade"
-                        lblfor = "tarefa"
+                        lblfor = "item"
                     />
                     <Input
-                        identificador = "tarefa"
-                        nome = "tarefa"
+                        identificador = "item"
+                        nome = "item"
                         tipo = "text"
+                        valor={this.state.nome}
                         placeholder = "Informe o nome da tarefa/estudo"
                         obrigatorio = {true}
+                        classe="input_form"
+                        callback={this.define_item}
                     />
                 </div>
                 <div className="inputContainer">
@@ -33,8 +80,11 @@ class Formulario extends React.Component {
                         step = "1"
                         tipo = "time"
                         obrigatorio = {true}
-                        minimo = "00:00:00"
-                        maximo = "01:30:00"
+                        valor = {this.state.tempo}
+                        minimo = "00:25:00"
+                        maximo = "00:30:00"
+                        classe="input_form"
+                        callback={this.altera_tempo}
                     />
                 </div>
 
@@ -46,16 +96,7 @@ class Formulario extends React.Component {
                         tipo = "submit"
                         valor = "Adicionar tarefa"
                         obrigatorio = {false}
-                        classe = "botao"
-                    />
-
-                    <Input                    
-                        identificador = "limpar"
-                        nome = "limpar"
-                        tipo = "reset"
-                        valor = "Limpar"
-                        obrigatorio = {false}
-                        classe = "btn_limpar"
+                        classe = "btn_add"
                     />
 
                 </div>

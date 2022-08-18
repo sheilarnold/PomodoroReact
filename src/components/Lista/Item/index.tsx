@@ -1,17 +1,23 @@
-import React from "react";
-
+import PropsItem from "../../../Interfaces/PropsItem";
 import "./style.scss";
 
-function Item (props:any) {
-
-    function create_item(){
-
-    }
+function Item ({id, nome, tempo, selecionado, completo, selecionaTarefa,}: PropsItem) {
 
     return(
-        <li id={props.id}>
-            <h3>{props.nome}:</h3>
-            <span>{props.tempo}</span>
+        <li
+            className={selecionado?"itemSelecionado":""}
+            onClick={() => 
+                selecionaTarefa({
+                    id,
+                    nome,
+                    tempo,
+                    selecionado,
+                    completo
+                })
+            }
+        >
+            <h3>{nome}:</h3>
+            <span>{tempo}</span>
         </li>
     )
 

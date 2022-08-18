@@ -22,8 +22,12 @@ li {
   }
   
   .itemSelecionado {
-    background-color: #292929;
-    box-shadow: 2px 4px 4px #0000009F inset;
+    background-color: #88bcd1;
+
+    h3, span {
+      color: #0000009F;
+    }
+
   }
   
   .itemCompletado {
