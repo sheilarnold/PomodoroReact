@@ -15,6 +15,7 @@ function App() {
   
   function selectItem(itemSelecionado: Iitem){
     setSelecionado(itemSelecionado);
+    
     setItens(itensAnteriores => itensAnteriores.map(
         item => ({
             ...item,
@@ -23,11 +24,17 @@ function App() {
         )
       )
     )
+
+  }
+
+  function continua_contagem(item_atual: Iitem){
+    if(item_atual != null && (itens.findIndex(item => item.id == item_atual.id) + 1) < itens.length){
+      selectItem(itens[itens.findIndex(item => item.id == item_atual.id) + 1]);
+    }
   }
 
   function defineItemCompleto(){
     if(selecionado){
-      setSelecionado(undefined);
 
       setItens(itensAnteriores => itensAnteriores.map(item => {
             if(item.id === selecionado.id){
@@ -44,6 +51,10 @@ function App() {
       )
     }
 
+    /*if(selecionado != null){
+      continua_contagem(selecionado);
+    }*/
+    
   }
 
   return (

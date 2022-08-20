@@ -8,9 +8,6 @@ class Input extends React.Component<
         obrigatorio: boolean,
         placeholder?: string,
         valor?:string,
-        step?:string,
-        minimo?: string,
-        maximo?: string,
         classe?: string,
         callback?: Function,
         callback_onClick?: () => void
@@ -26,9 +23,6 @@ class Input extends React.Component<
                 placeholder = {this.props.placeholder}
                 required = {this.props.obrigatorio}
                 value = {this.props.valor}
-                step = {this.props.step}
-                min={this.props.minimo}
-                max={this.props.maximo}
                 className={this.props.classe}
                 onChange={(valor) => this.props.callback?this.props.callback(valor.target.value):null}
                 onClick={this.props.callback_onClick}

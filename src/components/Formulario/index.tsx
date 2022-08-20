@@ -13,15 +13,8 @@ class Formulario extends React.Component<{
 
     state = {
         nome: "",
-        tempo: "00:00"
+        tempo: "00:00:10"
     };
-
-    altera_tempo = (tmp: any) => {
-        this.setState({
-            ...this.state,
-            tempo: tmp
-        })
-    }
 
     define_item = (itn: any) => {
         this.setState({
@@ -40,13 +33,20 @@ class Formulario extends React.Component<{
                     selecionado: false,
                     completo: false,
                     id: idV4()
+                },
+                {
+                    id: idV4(),
+                    nome: "Pausa",
+                    tempo: "00:00:05",
+                    selecionado: false,
+                    completo: false
                 }
             ]
         );
 
         this.setState({
             nome: "",
-            tempo: "00:00"
+            tempo: "00:01:10"
         });
     }
 
@@ -71,27 +71,6 @@ class Formulario extends React.Component<{
                         callback={this.define_item}
                     />
 
-                </div>
-                <div className="inputContainer">
-
-                    <Label
-                        titulo = "Tempo"
-                        lblfor = "tempo"
-                    />
-                    <Input
-                        identificador = "tempo"
-                        nome = "tempo"
-                        step = "1"
-                        tipo = "time"
-                        obrigatorio = {true}
-                        valor = {this.state.tempo}
-                        //minimo = "00:25:00"
-                        minimo = "00:00:01"
-                        maximo = "00:30:00"
-                        classe="input_form"
-                        callback={this.altera_tempo}
-                    />
-                    
                 </div>
 
                 <div>

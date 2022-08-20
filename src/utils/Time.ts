@@ -9,9 +9,9 @@ export default function TempoParaSegundos(tempo: string){
         const minutosEmSegundos = Number(minutos)*60;
     */
 
-    console.log("valor recebido: ", tempo);
+    //console.log("valor recebido: ", tempo);
 
-    console.log("Valor retornado: ", ((Number(horas) * 3600) + (Number(minutos) * 60) + (Number(segundos))));
+    //console.log("Valor retornado: ", ((Number(horas) * 3600) + (Number(minutos) * 60) + (Number(segundos))));
 
     return ((Number(horas) * 3600) + (Number(minutos) * 60) + (Number(segundos)));
 
