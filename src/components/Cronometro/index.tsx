@@ -45,9 +45,7 @@ function Cronometro({item, callback} : Props){
             </div>
             
             <Input
-                identificador="init_cronometro"
                 tipo="button"
-                nome="init_cronometro"
                 valor="Começar"
                 obrigatorio={false}
                 classe="btn_comecar"

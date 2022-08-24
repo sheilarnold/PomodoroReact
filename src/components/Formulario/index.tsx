@@ -61,8 +61,6 @@ class Formulario extends React.Component<{
                         lblfor = "item"
                     />
                     <Input
-                        identificador = "item"
-                        nome = "item"
                         tipo = "text"
                         valor={this.state.nome}
                         placeholder = "Informe o nome da tarefa/estudo"
@@ -75,9 +73,7 @@ class Formulario extends React.Component<{
 
                 <div>
 
-                    <Input                    
-                        identificador = "salvar"
-                        nome = "salvar"
+                    <Input
                         tipo = "submit"
                         valor = "Adicionar tarefa"
                         obrigatorio = {false}

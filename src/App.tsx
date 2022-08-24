@@ -27,12 +27,6 @@ function App() {
 
   }
 
-  function continua_contagem(item_atual: Iitem){
-    if(item_atual != null && (itens.findIndex(item => item.id == item_atual.id) + 1) < itens.length){
-      selectItem(itens[itens.findIndex(item => item.id == item_atual.id) + 1]);
-    }
-  }
-
   function defineItemCompleto(){
     if(selecionado){
 
@@ -50,10 +44,6 @@ function App() {
         )
       )
     }
-
-    /*if(selecionado != null){
-      continua_contagem(selecionado);
-    }*/
     
   }
 

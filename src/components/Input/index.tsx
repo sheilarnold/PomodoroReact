@@ -2,9 +2,7 @@ import React from "react";
 
 class Input extends React.Component<
     {
-        identificador:string, 
-        tipo:string, 
-        nome: string, 
+        tipo:string,
         obrigatorio: boolean,
         placeholder?: string,
         valor?:string,
@@ -17,8 +15,6 @@ class Input extends React.Component<
     render(){
         return (
             <input
-                id = {this.props.identificador}
-                name = {this.props.nome}
                 type={this.props.tipo}
                 placeholder = {this.props.placeholder}
                 required = {this.props.obrigatorio}
